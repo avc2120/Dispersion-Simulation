@@ -88,6 +88,7 @@ def dispersion(bot, direction):
     print 'scribbler set forward'
     while True:
         global home
+        #print home
         beacon = bot.detectBeacon()
         if (home == True and beacon != 3):
                     #print bot.NAME, 'following edge'
@@ -118,8 +119,7 @@ def dispersion(bot, direction):
             while time.time() < end_time:
                 bot.stop()
             print 'initializing new robot'
-            thread.start_new_thread(main, ())
-                
+            thread.start_new_thread(main, ())   
         elif (beacon == 2):
             #print 'marking explored'
             bot.dropBeacon(True)

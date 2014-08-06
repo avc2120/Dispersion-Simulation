@@ -129,6 +129,13 @@ class COORDS:
                         r, g, b, a = im[x, y]
                         if (r, g, b) == (0, 255, 0):
                             im[x, y] = (125, 125, 125, a)
+            elif(xL >= 420 and xL <= 480 and yL >= 320 and yL <= 360):
+                width, height = pic.size
+                for x in range(420, 480):
+                    for y in range(320,360):
+                        r, g, b, a = im[x, y]
+                        if (r, g, b) == (0, 255, 0):
+                            im[x, y] = (125, 125, 125, a)
         else:
             print 'marking explored'
             if (xL >= 235 and xL <= 350 and yL >= 280 and yL <= 350):
@@ -141,7 +148,7 @@ class COORDS:
             elif (xL >= 500 and xL <= 530 and yL >= 343 and yL <= 520):
                 print 'changing 2'
                 width, height = pic.size
-                for x in range(515,520):
+                for x in range(518,520):
                     for y in range(350,465):
                         r,g,b,a = im[x,y]
                         im[x,y] = (0,0,0,a)
