@@ -141,36 +141,36 @@ class COORDS:
             if (xL >= 235 and xL <= 350 and yL >= 280 and yL <= 350):
                 print 'changing 1'
                 width, height = pic.size
-                for x in range(225,400):
-                    for y in range(340,345):
+                for x in range(230,400):
+                    for y in range(340,520):
                         r,g,b,a = im[x,y]
                         im[x,y] = (0,0,0,a)
             elif (xL >= 500 and xL <= 530 and yL >= 343 and yL <= 520):
                 print 'changing 2'
                 width, height = pic.size
-                for x in range(518,520):
+                for x in range(518,700):
                     for y in range(350,465):
                         r,g,b,a = im[x,y]
                         im[x,y] = (0,0,0,a)
             elif (xL >= 560 and xL <= 700 and yL >= 260 and yL <= 280):
                 print 'changing 3'
                 width, height = pic.size
-                for x in range(530,645):
-                    for y in range(270,275):
+                for x in range(530,640):
+                    for y in range(100,275):
                         r,g,b,a = im[x,y]
                         im[x,y] = (0,0,0,a)
             elif (xL >= 445 and xL <= 460 and yL >= 80 and yL <= 280):
                 print 'changing 4'
                 width, height = pic.size
-                for x in range(445,450):
-                    for y in range(135,270):
+                for x in range(250,450):
+                    for y in range(140,270):
                         r,g,b,a = im[x,y]
                         im[x,y] = (0,0,0,a)
             elif (xL >= 100 and xL <= 300 and yL >= 260 and yL <= 280):
                 print 'changing 5'
                 width, height = pic.size
                 for x in range(100,215):
-                    for y in range(270,275):
+                    for y in range(80,275):
                         r,g,b,a = im[x,y]
                         im[x,y] = (0,0,0,a)
         pic.save('worldhi.png')
