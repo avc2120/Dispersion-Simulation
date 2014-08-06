@@ -8,7 +8,6 @@ ROBOTS = []
 IDLE_ROBOTS = []
 ROFFLINE=[]
 EST = False
-ONLINE_ROBOTS = []
 
 def initializeRobots():
     #connect with all possible robots and put them into the queue
@@ -36,7 +35,6 @@ def initializePositions():
     global ROBOTS
     for i in range(len(ROBOTS)): 
         bot = IDLE_ROBOTS.pop(0)
-        ONLINE_ROBOTS.append(bot)
         print bot.NAME, 'getting on left'
         dispersion(bot, 'left')
         bot.stop()
@@ -88,36 +86,46 @@ def resetRobotConnection(bot):
 def dispersion(bot, direction):
     bot.setScribblerForward()
     print 'scribbler set forward'
-    again = True
-    global home
-    print home
-    while again:
+    while True:
+        global home
         beacon = bot.detectBeacon()
-        if (beacon == 0):
-            bot.dropBeacon(False)
-            bot.stop()
-            print 'initializing new robot'
-            end_time = time.time() + 1
-            if time.time() > end_time:
-                thread.start_new_thread(main, ())
-            again = False
-        elif (beacon == 2):
-            print 'marking explored'
-            bot.dropBeacon(True)
-        elif (beacon == 3 and home == False):
+        if (home == True and beacon != 3):
+                    #print bot.NAME, 'following edge'
+                    lines = bot.getBothLines()
+                    (lline, rline) = (lines[0], lines[1])
+                    if not(lline) and not(rline): 
+                        bot.move(250, 200)
+                    elif lline and not(rline):           
+                        count = 0
+                        bot.move(250, 250)
+                        inside = True
+                    elif lline and rline:                
+                        count = 0
+                        bot.move(200, 250)
+                    elif not(lline) and rline:         
+                        count = 0
+                        bot.move(250, 200)
+                        inside = False
+                    else:
+                        print("?????")
+        elif (beacon == 3):
+            #print 'home detected'
             home = True
             bot.stop()
-            ONLINE_ROBOTS.pop(0)
-            break
+        elif (home == False and beacon == 0):
+            bot.dropBeacon(False)
+            end_time = time.time() + 0.5
+            while time.time() < end_time:
+                bot.stop()
+            print 'initializing new robot'
+            thread.start_new_thread(main, ())
+                
+        elif (beacon == 2):
+            #print 'marking explored'
+            bot.dropBeacon(True)
         else:
-            bot.followEdge(direction, 250,200)
+            bot.followEdge(250,200)
         
-def goHome(direction):
-    for x in ROBOTS:
-        if x.detectBeacon() == 3:
-            ONLINE_ROBOTS.pop(0)
-        else:
-            x.followEdge(direction, 250, 200)
 def main():
     global ROBOTS, ROFFLINE, NEEDS_REINFORCEMENTS, IDLE_ROBOTS
     initializePositions()
@@ -132,4 +140,3 @@ if __name__ == "__main__":
     print 'robots initialized'
     thread.start_new_thread(main, ())
     input()
-    #goHome('left')

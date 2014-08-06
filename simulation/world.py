@@ -89,17 +89,11 @@ class COORDS:
             new_loc[0] + 32*cos(RR), 
             new_loc[1] - 32*sin(RR))
 
-    def markExplored(self, xL, yL):
-        print xL, yL
-        #80, 345, 235 ,340,
-        print 'got here'
-        
-        pic.save('worldhi.png')
-
     def dropBeacon(self, xL, yL, explored):
-        print xL, yL
+        #print xL, yL
         80, 345, 235 ,340
         if explored == False:
+            print 'marking unexplored'
             if (xL >= 100 and xL <= 240 and yL >= 330 and yL <= 350):
                 width, height = pic.size
                 for x in range(350):
@@ -136,26 +130,25 @@ class COORDS:
                         if (r, g, b) == (0, 255, 0):
                             im[x, y] = (125, 125, 125, a)
         else:
-            445, 205, 450 ,270
-            515, 270, 580 ,275
+            print 'marking explored'
             if (xL >= 235 and xL <= 350 and yL >= 280 and yL <= 350):
                 print 'changing 1'
                 width, height = pic.size
-                for x in range(200,400):
+                for x in range(225,400):
                     for y in range(340,345):
                         r,g,b,a = im[x,y]
                         im[x,y] = (0,0,0,a)
-            elif (xL >= 500 and xL <= 530 and yL >= 340 and yL <= 520):
+            elif (xL >= 500 and xL <= 530 and yL >= 343 and yL <= 520):
                 print 'changing 2'
                 width, height = pic.size
                 for x in range(515,520):
-                    for y in range(350,520):
+                    for y in range(350,465):
                         r,g,b,a = im[x,y]
                         im[x,y] = (0,0,0,a)
             elif (xL >= 560 and xL <= 700 and yL >= 260 and yL <= 280):
                 print 'changing 3'
                 width, height = pic.size
-                for x in range(530,700):
+                for x in range(530,645):
                     for y in range(270,275):
                         r,g,b,a = im[x,y]
                         im[x,y] = (0,0,0,a)
@@ -163,13 +156,13 @@ class COORDS:
                 print 'changing 4'
                 width, height = pic.size
                 for x in range(445,450):
-                    for y in range(80,270):
+                    for y in range(135,270):
                         r,g,b,a = im[x,y]
                         im[x,y] = (0,0,0,a)
             elif (xL >= 100 and xL <= 300 and yL >= 260 and yL <= 280):
                 print 'changing 5'
                 width, height = pic.size
-                for x in range(100,300):
+                for x in range(100,215):
                     for y in range(270,275):
                         r,g,b,a = im[x,y]
                         im[x,y] = (0,0,0,a)

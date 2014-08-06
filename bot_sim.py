@@ -151,47 +151,25 @@ class bot(threading.Thread):
         while time.time() < end_time:
            self.move(jump_speed, jump_speed)
 
-    def followEdge(self, side, out_speed, in_speed):
-        self.setScribblerForward()
+    def followEdge(self, out_speed, in_speed):
         lines = self.getBothLines()
-        if side == 'right':
-            if lines != (None, None):
-                (lline, rline) = (lines[0], lines[1])
-                if lline and rline:           #(0, 0)
-        #                    print "not on line"
-                    self.move(out_speed, in_speed)
-                elif not(lline) and rline:                #(1, 0)
-                    count = 0
-                    self.move(out_speed, out_speed)
-                    inside = True
-                elif not(lline) and not(rline):                   #(1, 1)
-                    count = 0
-                    self.move(in_speed, out_speed)
-                elif lline and not(rline):              #(0, 1)
-                    count = 0
-                    self.move(out_speed, in_speed)
-                    inside = False
-                else:
-                    print("?????")
-        elif side == 'left':
-            if lines != (None, None):
-                (lline, rline) = (lines[0], lines[1])
-                if not(lline) and not(rline):           #(0, 0)
-        #                    print "not on line"
-                    self.move(out_speed, in_speed)
-                elif lline and not(rline):                #(1, 0)
-                    count = 0
-                    self.move(out_speed, out_speed)
-                    inside = True
-                elif lline and rline:                   #(1, 1)
-                    count = 0
-                    self.move(in_speed, out_speed)
-                elif not(lline) and rline:              #(0, 1)
-                    count = 0
-                    self.move(out_speed, in_speed)
-                    inside = False
-                else:
-                    print("?????")
+        if lines != (None, None):
+            (lline, rline) = (lines[0], lines[1])
+            if not(lline) and not(rline): 
+                self.move(out_speed, in_speed)
+            elif lline and not(rline):           
+                count = 0
+                self.move(out_speed, out_speed)
+                inside = True
+            elif lline and rline:                
+                count = 0
+                self.move(in_speed, out_speed)
+            elif not(lline) and rline:         
+                count = 0
+                self.move(out_speed, in_speed)
+                inside = False
+            else:
+                print("?????")
 
 
     def getBothLines(self):

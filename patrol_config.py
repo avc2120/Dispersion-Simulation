@@ -7,16 +7,16 @@ SIZE = 1000
 if True:
 	import bot_sim as bot
 	ROBOT_LIST_ALL = (
-	(("Anders", 6665, "scribbler"), 
-	("Boomer", 6666, "scribbler"),
-	("Caprica", 6667, "scribbler"), 
-	("Caval", 6668, "scribbler"),
-	("Hera", 6669, "scribbler"), 
-	("Leoben", 6670, "scribbler"),
-	("Sharon", 6671, "scribbler"), 
-	("Tigh", 6672, "scribbler"),
-    ("Tory", 6673, "scribbler"), 
-    ("Tyrol", 6674, "scribbler")
+	(("Alice", 6665, "scribbler"), 
+	("Diana", 6666, "scribbler"),
+	("Elizabeth", 6667, "scribbler"), 
+	("Maria", 6668, "scribbler"),
+	("Marie", 6669, "scribbler"), 
+	("Mark", 6670, "scribbler"),
+	("Ernesto", 6671, "scribbler"), 
+	("Julio", 6672, "scribbler"),
+    ("Will", 6673, "scribbler"), 
+    ("Hakim", 6674, "scribbler")
 	),
 	(("Delenn", 6680, "scribbler"), 
 	("G'Kar", 6681, "scribbler"),
