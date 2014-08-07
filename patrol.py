@@ -123,7 +123,7 @@ def dispersion(bot, direction):
         elif (beacon == 2):
             #print 'marking explored'
             bot.dropBeacon(True)
-        else:
+        elif (beacon == 4):
             bot.followEdge(250,200)
         
 def main():
