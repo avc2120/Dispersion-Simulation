@@ -115,17 +115,17 @@ class COORDS:
                         r, g, b, a = im[x, y]
                         if (r, g, b) == (0, 255, 0):
                             im[x, y] = (125, 125, 125, a)
-            elif(xL >= 420 and xL <= 480 and yL >= 80 and yL <= 160):
+            elif(xL >= 420 and xL <= 480 and yL >= 100 and yL <= 160):
                 width, height = pic.size
-                for x in range(400, 550):
-                    for y in range(100,450):
+                for x in range(420, 480):
+                    for y in range(100,160):
                         r, g, b, a = im[x, y]
                         if (r, g, b) == (0, 255, 0):
                             im[x, y] = (125, 125, 125, a)
-            elif(xL >= 200 and xL <= 500 and yL >= 200 and yL <= 450):
+            elif(xL >= 200 and xL <= 260 and yL >= 260 and yL <= 300):
                 width, height = pic.size
-                for x in range(200, 500):
-                    for y in range(200,450):
+                for x in range(200, 260):
+                    for y in range(260,300):
                         r, g, b, a = im[x, y]
                         if (r, g, b) == (0, 255, 0):
                             im[x, y] = (125, 125, 125, a)
